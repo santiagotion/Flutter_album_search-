@@ -1,7 +1,7 @@
 import 'package:album_search/model/album_search_preview.dart';
 import 'package:album_search/services/album_search_service.dart';
 
-class PreviewRepository {
+class SearchRepository {
   final _searchService = AlbumSearchService();
 
   Future<List<AlbumPreview>> fetchResultList(String value) async {
