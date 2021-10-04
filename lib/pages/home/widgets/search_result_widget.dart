@@ -1,5 +1,8 @@
 import 'package:album_search/model/album_search_preview.dart';
+import 'package:album_search/pages/detail/detail_screen.dart';
+import 'package:album_search/pages/detail/controller/album_detail_view_model.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ListSearchWidget extends StatefulWidget {
   final List<AlbumPreview> _previewList;
@@ -72,7 +75,7 @@ class _ListSearchWidgetState extends State<ListSearchWidget> {
       child: Column(children: <Widget>[
         ListView.separated(
           shrinkWrap: true,
-          padding: const EdgeInsets.only(top: 20),
+          padding: const EdgeInsets.only(top: 20, bottom: 20),
           physics: const NeverScrollableScrollPhysics(),
           scrollDirection: Axis.vertical,
           itemCount: widget._previewList.length,
@@ -85,7 +88,17 @@ class _ListSearchWidgetState extends State<ListSearchWidget> {
                 onTap: () {
                   if (null != data.artistName) {
                     widget._function(data);
+
+                    Navigator.push(
+                      (context),
+                      MaterialPageRoute(
+                        builder: ((context) => DetailsScreen(data: data)),
+                      ),
+                    );
                   }
+                  Provider.of<AlbumDetailViewModel>(context, listen: false)
+                      .fetchMediaData(data.artistName.toString(),
+                          data.albumName.toString());
                 },
                 child: Container(
                   color: Colors.white,

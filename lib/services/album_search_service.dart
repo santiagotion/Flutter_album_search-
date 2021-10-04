@@ -12,7 +12,7 @@ class AlbumSearchService {
           "https://ws.audioscrobbler.com/2.0/?method=album.search&album=" +
               album +
               "&api_key=" +
-              "API_KEY" "&format=json"));
+              "YOUR_API_KEY_HERE" "&format=json"));
       responseJson = returnResponse(response);
     } on SocketException {
       throw FetchDataException('No Internet Connection');

@@ -10,7 +10,7 @@ class AlbumService {
     try {
       final response = await http.get(Uri.parse(
           "https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=" +
-              "API_KEY" "&artist=" +
+              "YOUR_API_KEY_HERE" "&artist=" +
               artist +
               "&album=" +
               album +

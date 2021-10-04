@@ -17,7 +17,7 @@ class SearchViewModel with ChangeNotifier {
   }
 
   Future<void> fetchMediaData(String value) async {
-    _apiResponse = ApiResponse.loading('Fetching artist data');
+    _apiResponse = ApiResponse.loading('Fetching data');
     notifyListeners();
     try {
       List<AlbumPreview> mediaList =
